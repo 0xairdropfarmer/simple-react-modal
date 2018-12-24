@@ -7,13 +7,15 @@ class App extends React.Component {
   };
   showModal = e => {
     this.setState({
-      show: true
+      show: !this.state.show
     });
   };
   render() {
     return (
       <div className="App">
         <button
+          class="toggle-button"
+          id="centered-toggle-button"
           onClick={e => {
             this.showModal(e);
           }}
@@ -22,7 +24,12 @@ class App extends React.Component {
           show Modal{" "}
         </button>
 
-        <Modal show={this.state.show}>Message in Modal</Modal>
+        <Modal onClose={this.showModal} show={this.state.show}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
+          deserunt corrupti, ut fugit magni qui quasi nisi amet repellendus non
+          fuga omnis a sed impedit explicabo accusantium nihil doloremque
+          consequuntur.
+        </Modal>
       </div>
     );
   }
